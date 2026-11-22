@@ -1,0 +1,28 @@
+name: Bug or wrong fact
+description: A skill gave wrong code, a wrong fact, or a script failed
+labels: [bug]
+body:
+  - type: dropdown
+    id: skill
+    attributes:
+      label: Skill
+      options: [pine-script-writer, pine-script-debugger, mql5-ea-builder, mql5-ea-reviewer, backtest-auditor, strategy-spec, position-sizing, trading-bot-security, trade-journal, prediction-market-bot, other]
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you asked, what you got, and what was wrong. Paste compiler errors exactly.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What is correct
+      description: Link to the official documentation if it is a platform fact.
+  - type: input
+    id: version
+    attributes:
+      label: Plugin version and Claude Code version
+      placeholder: "trading-studio 1.0.0, Claude Code 2.x"

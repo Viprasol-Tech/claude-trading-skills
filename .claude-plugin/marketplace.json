@@ -1,0 +1,17 @@
+{
+  "name": "claude-trading-skills",
+  "description": "Free Claude Code skills for traders and trading-system developers: Pine Script v6, MQL5 Expert Advisors, backtest auditing, position sizing and bot security.",
+  "owner": {
+    "name": "Viprasol Tech",
+    "url": "https://viprasol.com"
+  },
+  "plugins": [
+    {
+      "name": "trading-studio",
+      "source": "./plugins/trading-studio",
+      "description": "10 skills: Pine Script v6 writer and debugger, MQL5 EA builder and reviewer, backtest auditor (PSR / Deflated Sharpe), strategy spec, position sizing, trading-bot security, trade journal, and Kalshi / Polymarket bots.",
+      "category": "finance",
+      "tags": ["trading", "pine-script", "tradingview", "mql5", "metatrader", "backtesting", "algorithmic-trading"]
+    }
+  ]
+}

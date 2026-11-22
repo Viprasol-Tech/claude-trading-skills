@@ -1,0 +1,37 @@
+//@version=6
+// Part of claude-trading-skills by Viprasol Tech Private Limited.
+// Non-repainting indicator template: closed-bar signals, higher-timeframe
+// filter without lookahead, alerts that fire once per confirmed bar.
+indicator("Trend Signal Template", shorttitle = "TST", overlay = true)
+
+// ---------- inputs ----------
+int    fastLen = input.int(20, "Fast EMA", minval = 1, group = "Signal")
+int    slowLen = input.int(50, "Slow EMA", minval = 2, group = "Signal")
+string htfTf   = input.timeframe("D", "Trend timeframe", group = "Filter")
+int    htfLen  = input.int(50, "Trend EMA length", minval = 1, group = "Filter")
+bool   useHtf  = input.bool(true, "Only trade with the trend", group = "Filter")
+
+// ---------- calculations (global scope: history functions run every bar) ----------
+float fast = ta.ema(close, fastLen)
+float slow = ta.ema(close, slowLen)
+
+// Higher-timeframe value from the last COMPLETED higher-timeframe bar.
+// The [1] offset and lookahead_on must be used together, or it repaints.
+float htfEma = request.security(syminfo.tickerid, htfTf, ta.ema(close, htfLen)[1], lookahead = barmerge.lookahead_on)
+
+bool trendUp   = not useHtf or close > htfEma
+bool trendDown = not useHtf or close < htfEma
+
+bool longSignal  = ta.crossover(fast, slow) and trendUp and barstate.isconfirmed
+bool shortSignal = ta.crossunder(fast, slow) and trendDown and barstate.isconfirmed
+
+// ---------- visuals ----------
+plot(fast, "Fast EMA", color.new(color.teal, 0), 2)
+plot(slow, "Slow EMA", color.new(color.orange, 0), 2)
+plot(useHtf ? htfEma : na, "Trend EMA", color.new(color.gray, 30), 1, plot.style_stepline)
+plotshape(longSignal, "Long", shape.triangleup, location.belowbar, color.new(color.green, 0), size = size.small)
+plotshape(shortSignal, "Short", shape.triangledown, location.abovebar, color.new(color.red, 0), size = size.small)
+
+// ---------- alerts ----------
+alertcondition(longSignal, "Long signal", "{{ticker}} long signal on {{interval}} at {{close}}")
+alertcondition(shortSignal, "Short signal", "{{ticker}} short signal on {{interval}} at {{close}}")

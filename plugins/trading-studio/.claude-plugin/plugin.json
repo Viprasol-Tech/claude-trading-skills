@@ -1,0 +1,15 @@
+{
+  "name": "trading-studio",
+  "displayName": "Trading Studio",
+  "version": "1.0.0",
+  "description": "Claude Code skills for algorithmic traders: write and debug Pine Script v6, build and review MQL5 Expert Advisors, audit backtests for lookahead and overfitting (PSR, Deflated Sharpe), write strategy specs, size positions, harden exchange bots, analyse trade journals and build Kalshi / Polymarket bots.",
+  "author": {
+    "name": "Viprasol Tech",
+    "email": "support@viprasol.com",
+    "url": "https://viprasol.com"
+  },
+  "homepage": "https://github.com/Viprasol-Tech/claude-trading-skills",
+  "repository": "https://github.com/Viprasol-Tech/claude-trading-skills",
+  "license": "MIT",
+  "keywords": ["trading", "pine-script", "tradingview", "mql5", "mt5", "expert-advisor", "backtesting", "deflated-sharpe", "position-sizing", "kalshi", "polymarket", "trading-bot", "claude-code-skills"]
+}
