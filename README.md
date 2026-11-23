@@ -143,7 +143,8 @@ exchange or broker mentioned here.
 Corrections with a link to official docs are the most valuable contribution:
 platforms change. See [CONTRIBUTING.md](CONTRIBUTING.md) and run
 `python tests/validate_repo.py` before opening a PR. More free Claude Code
-packs from Viprasol: [claude-video-editing-skills](https://github.com/Viprasol-Tech/claude-video-editing-skills).
+packs from Viprasol: [claude-fintech-skills](https://github.com/Viprasol-Tech/claude-fintech-skills) ·
+[claude-video-editing-skills](https://github.com/Viprasol-Tech/claude-video-editing-skills).
 
 ## 📬 Contact — Viprasol Tech Private Limited
 
