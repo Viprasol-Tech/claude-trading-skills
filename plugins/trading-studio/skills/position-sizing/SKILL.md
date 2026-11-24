@@ -13,18 +13,17 @@ quantities **down**.
 ## Calculator
 
 ```bash
-S=${CLAUDE_SKILL_DIR}/scripts/position_size.py
-python $S risk  --equity 25000 --risk-pct 1 --entry 182.50 --stop 178.00            # shares
-python $S risk  --equity 50000 --risk-pct 0.5 --entry 5300 --stop 5285 --multiplier 50  # ES futures
-python $S risk  --equity 8000 --risk-pct 1 --entry 64250 --stop 62900 --step 0.001 \
+python ${CLAUDE_SKILL_DIR}/scripts/position_size.py risk  --equity 25000 --risk-pct 1 --entry 182.50 --stop 178.00            # shares
+python ${CLAUDE_SKILL_DIR}/scripts/position_size.py risk  --equity 50000 --risk-pct 0.5 --entry 5300 --stop 5285 --multiplier 50  # ES futures
+python ${CLAUDE_SKILL_DIR}/scripts/position_size.py risk  --equity 8000 --risk-pct 1 --entry 64250 --stop 62900 --step 0.001 \
                 --fee-per-unit 128                                                  # BTC, fees per 1 BTC
-python $S forex --equity 10000 --risk-pct 1 --stop-pips 25 --pip-value 10            # EURUSD, USD account
-python $S kelly --win-rate 0.55 --payoff 1.2
-python $S binary --price 0.40 --prob 0.50 --bankroll 2000                           # Kalshi / Polymarket
-python $S atr-stop --entry 100 --atr 2.5 --mult 2 --side long
+python ${CLAUDE_SKILL_DIR}/scripts/position_size.py forex --equity 10000 --risk-pct 1 --stop-pips 25 --pip-value 10            # EURUSD, USD account
+python ${CLAUDE_SKILL_DIR}/scripts/position_size.py kelly --win-rate 0.55 --payoff 1.2
+python ${CLAUDE_SKILL_DIR}/scripts/position_size.py binary --price 0.40 --prob 0.50 --bankroll 2000                           # Kalshi / Polymarket
+python ${CLAUDE_SKILL_DIR}/scripts/position_size.py atr-stop --entry 100 --atr 2.5 --mult 2 --side long
 ```
 
-Add `--json` to any command for machine-readable output. `python $S --self-test`
+Add `--json` to any command for machine-readable output. `python ${CLAUDE_SKILL_DIR}/scripts/position_size.py --self-test`
 checks the maths.
 
 Key inputs:
